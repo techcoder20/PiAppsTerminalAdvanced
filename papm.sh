@@ -9,7 +9,7 @@ generartlist() {
 }
 
 #Version argument for papm command
-if [ "$1" == "version" ] || [ "$1" == "--v" ];then
+if [ "$1" == "version" ] || [ "$1" == "-v" ];then
   echo "Current Version: LoL I dont even know if pi apps has version :)"
 #update argument for papm command
 elif [ "$1" == "update" ];then
