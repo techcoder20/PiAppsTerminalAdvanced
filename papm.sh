@@ -13,7 +13,7 @@ if [ "$1" == "version" ] || [ "$1" == "--v" ];then
   echo "Current Version: LoL I dont even know if pi apps has version :)"
 #update argument for papm command
 elif [ "$1" == "update" ];then
-  ~/pi-apps/updater
+  ~/pi-apps/manage update-all
 #list argument for papm command
 elif [ "$1" == "list" ];then
   generartlist
