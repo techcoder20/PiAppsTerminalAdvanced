@@ -17,6 +17,8 @@ elif [ "$1" == "update" ];then
 #list argument for papm command
 elif [ "$1" == "list" ];then
   generartlist
+elif [ "$1" == "install" ];then
+  ~/pi-apps/manage install $2
 fi
 
 
