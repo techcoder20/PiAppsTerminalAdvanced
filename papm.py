@@ -17,7 +17,7 @@ else:
 PiAppsDirectory = os.listdir("/home/pi/pi-apps/apps")
 AppsName=[]
 AppsNameNoSpaces=[]
-InstalledApps= os.listdir("/home/pi/pi-apps/data/installed-packages")
+InstalledApps= os.listdir("/home/pi/pi-apps/data/status")
 SearchResults=0
 SimilarityRubric=100
 
@@ -25,41 +25,61 @@ for appname in PiAppsDirectory:
     #Checking if system is 32-bit
     if system == 32:
         #Checking if app is 32-bit
-        if os.path.isfile("/home/pi/pi-apps/apps/" + appname + "/install-32") or os.path.isfile("/home/pi/pi-apps/apps/" + appname + "/install"):
+        if os.path.isfile("/home/pi/pi-apps/apps/" + appname + "/install-32") or os.path.isfile("/home/pi/pi-apps/apps/" + appname + "/install") and appname != "template":
             AppsName.append(appname)
             appname = appname.replace(" ","\ ")
             AppsNameNoSpaces.append(appname)
     #Checking if system is 64-bit
     elif system == 64:
         #Checking if app is 64-bit
-        if os.path.isfile("/home/pi/pi-apps/apps/" + appname + "/install-64") or os.path.isfile("/home/pi/pi-apps/apps/" + appname + "install"):
+        if os.path.isfile("/home/pi/pi-apps/apps/" + appname + "/install-64") or os.path.isfile("/home/pi/pi-apps/apps/" + appname + "install") and appname != "template":
             AppsName.append(appname)
             appname = appname.replace(" ","\ ")
             AppsNameNoSpaces.append(appname)
 
-#List Argument
+#List Arguments
 try: 
     if sys.argv[1] == "list-installed":
         for InstalledApp in InstalledApps:
-            print(Fore.GREEN + InstalledApp)
-            fo = open("/home/pi/pi-apps/apps/" + InstalledApp + "/description","r")
-            description = fo.read()
-            print(Fore.CYAN + description)
-            fo.close()
+            AppStatus = open("/home/pi/pi-apps/data/status/" + InstalledApp ,"r")
+            status = AppStatus.read()
+            AppStatus.close()
+            if status.strip() == "installed":
+                print(Fore.GREEN + InstalledApp)
+                descriptionfile = open("/home/pi/pi-apps/apps/" + InstalledApp + "/description","r")
+                description = descriptionfile.read()
+                print(Fore.CYAN + description)
+                descriptionfile.close()
 except IndexError:
-    print(Fore.RED + "Please enter valid argument. Use command 'papm --help' to get a list of valid arguments")
+    print(Fore.RED + "Please enter valid argument. Use command 'papm help' to get a list of valid arguments")
+    quit()
+
+try: 
+    if sys.argv[1] == "list-uninstalled":
+        for InstalledApp in InstalledApps:
+            AppStatus = open("/home/pi/pi-apps/data/status/" + InstalledApp ,"r")
+            status = AppStatus.read()
+            AppStatus.close()
+            if status.strip() == "uninstalled":
+                print(Fore.GREEN + InstalledApp)
+                descriptionfile = open("/home/pi/pi-apps/apps/" + InstalledApp + "/description","r")
+                description = descriptionfile.read()
+                print(Fore.CYAN + description)
+                descriptionfile.close()
+except IndexError:
+    print(Fore.RED + "Please enter valid argument. Use command 'papm help' to get a list of valid arguments")
     quit()
 
 try:
     if sys.argv[1] == "list-all":
         for appname in AppsName:
             print(Fore.GREEN + appname)
-            fo = open("/home/pi/pi-apps/apps/" + appname + "/description","r")
-            description = fo.read()
+            descriptionfile = open("/home/pi/pi-apps/apps/" + appname + "/description","r")
+            description = descriptionfile.read()
             print(Fore.CYAN + description)
-            fo.close()
+            descriptionfile.close()
 except IndexError:
-    print(Fore.RED + "Please enter valid argument. Use command 'papm --help' to get a list of valid arguments")
+    print(Fore.RED + "Please enter valid argument. Use command 'papm help' to get a list of valid arguments")
     quit()
 
 #Install argument
@@ -78,7 +98,7 @@ try:
         if AppExists == False:
             print(Fore.RED + "App Doesnt Exist. Use command 'papm list --all' to list the apps also make sure to use '' while entering app name")
 except IndexError:
-    print(Fore.RED + "Please enter valid argument. Use command 'papm --help' to get a list of valid arguments")
+    print(Fore.RED + "Please enter valid argument. Use command 'papm help' to get a list of valid arguments")
     quit()
 
 #Uninstall argument
@@ -97,7 +117,7 @@ try:
         if AppExists == False:
             print(Fore.RED + "App Doesnt Exist. Use command 'papm installed list --all' to list the installed apps also make sure to use '' while entering app name")
 except IndexError:
-    print(Fore.RED + "Please enter valid argument. Use command 'papm --help' to get a list of valid arguments")
+    print(Fore.RED + "Please enter valid argument. Use command 'papm help' to get a list of valid arguments")
     quit()
 
 #Search argument
@@ -120,15 +140,35 @@ try:
                 print("No Search Results Found :(")
                 quit()
 except IndexError:
-    print(Fore.RED + "Please enter valid argument. Use command 'papm --help' to get a list of valid arguments")
+    print(Fore.RED + "Please enter valid argument. Use command 'papm help' to get a list of valid arguments")
     quit()
 
 try:
     if sys.argv[1] == "update":
         os.system("/home/pi/pi-apps/manage update-all")
 except IndexError:
-    print(Fore.RED + "Please enter valid argument. Use command 'papm --help' to get a list of valid arguments")
+    print(Fore.RED + "Please enter valid argument. Use command 'papm help' to get a list of valid arguments")
     quit()
+
+#website argument
+try:
+    if sys.argv[1] == "website":
+        AppFound = False
+        for App in AppsName:
+            if sys.argv[2] == App:
+                WebsiteFile = open("/home/pi/pi-apps/apps/" + App + "/website","r")
+                website = WebsiteFile.read()
+                print(Fore.CYAN + website.strip())
+                WebsiteFile.close()
+                AppFound = True
+                quit()
+        if AppFound == False:
+            print(Fore.RED + "Please enter valid appname. Use command 'papm list-all' to get the list of apps")            
+                
+except IndexError:
+    print(Fore.RED + "Please enter valid appname. Use command 'papm list-all' to get the list of apps")
+    quit()
+        
 
 try:
     if sys.argv[1] == "help":
@@ -138,10 +178,12 @@ try:
         print(Fore.BLUE + "Available Arguments: ")
         print(Fore.GREEN + "list-all" +Fore.CYAN+ "  Prints the list of available apps that are installable")
         print(Fore.GREEN + "list-installed" +Fore.CYAN+ "  Prints all installed apps")
+        print(Fore.GREEN + "list-uninstalled" +Fore.CYAN+ "  Prints all uninstalled apps")
         print(Fore.GREEN + "install '[appname]'" +Fore.CYAN+ "  Install any app available in pi-apps")
         print(Fore.GREEN + "uninstall '[appname]'" +Fore.CYAN+ "  Uninstall any app available in pi-apps")
         print(Fore.GREEN + "search '[appname]'" +Fore.CYAN+ "  Search for a app in pi apps")
         print(Fore.GREEN + "update" +Fore.CYAN+ "  Update pi-apps")
+        print(Fore.GREEN + "website '[appname]'" +Fore.CYAN+ "  Prints website for app")
 except IndexError:
-    print(Fore.RED + "Please enter valid argument. Use command 'papm --help' to get a list of valid arguments")
+    print(Fore.RED + "Please enter valid argument. Use command 'papm help' to get a list of valid arguments")
     quit()
