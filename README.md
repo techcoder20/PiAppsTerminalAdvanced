@@ -2,9 +2,11 @@
 This is a prototype of PiAppsPackageManager terminal commands
 
 ## Install Command
-`wget -qO- https://raw.githubusercontent.com/techcoder20/PiAppsPackageManagerTerminal/main/install.sh | bash`
+```
+wget -qO- https://raw.githubusercontent.com/techcoder20/PiAppsPackageManagerTerminal/main/install.sh | bash
+```
 
-## Available Argument
+## Available Arguments
 
 `papm install '[appname]'`  
 You can use this command to install any app available in pi apps. If your app's name has a space make sure to put the name in quotes.  
