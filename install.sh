@@ -6,5 +6,3 @@ wget https://raw.githubusercontent.com/techcoder20/PiAppsPackageManagerTerminal/
 mv papm.py ~/pi-apps
 #Create a alias
 echo "alias papm="python3 ~/pi-apps/papm.py"" >> ~/.bashrc
-#Run the help command to get the list of commands
-papm help
