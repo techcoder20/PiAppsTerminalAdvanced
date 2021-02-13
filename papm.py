@@ -5,7 +5,7 @@ try:
     from fuzzywuzzy import fuzz
 except ImportError:
     print("fuzzywuzzy Is Not Installed, Installing it :)")
-    os.system("pip3 install fuzzywuzzy")
+    os.system("pip3 install python-Levenshtein fuzzywuzzy")
 from colorama import Fore, Back, Style
 
 #Checking if system is 32 bit or 64 bit
