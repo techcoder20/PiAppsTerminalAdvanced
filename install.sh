@@ -5,4 +5,5 @@ wget https://raw.githubusercontent.com/techcoder20/PiAppsPackageManagerTerminal/
 #Move it to pi-apps directory
 mv papm.py ~/pi-apps
 #Create a alias
-echo "alias papm="python3 ~/pi-apps/papm.py"" >> ~/.bashrc
+unalias papm
+echo "alias papm='python3 ~/pi-apps/papm.py'" >> ~/.bashrc
