@@ -1,5 +1,5 @@
 # PiAppsTerminalAdvanced
-This is a prototype of PiAppsPackageManager terminal commands
+This is an advanced terminal version of pi apps
 
 ## Install Command
 ```
@@ -8,26 +8,26 @@ wget -qO- https://raw.githubusercontent.com/techcoder20/PiAppsTerminalAdvanced/m
 
 ## Available Arguments
 
-`papm install '[appname]'`  
+`pi-apps install '[appname]'`  
 You can use this command to install any app available in pi apps. If your app's name has a space make sure to put the name in quotes.  
 
-`papm uninstall '[appname]'`  
+`pi-apps uninstall '[appname]'`  
 You can use this command to uninstall any app available in pi apps. If your app's name has a space make sure to put the name in quotes.  
 
-`papm list-all`  
+`pi-apps list-all`  
 Prints a list of all available apps in pi apps with their description.  
 
-`papm list-installed`  
+`pi-apps list-installed`  
 Prints a list of installed apps.  
 
-`papm list-uninstalled`  
+`pi-apps list-uninstalled`  
 Prints a list of uninstalled apps.  
 
-`papm search '[appname]'`
+`pi-apps search '[appname]'`
 Search for any app in Pi-Apps
 
-`papm update`  
+`pi-apps update`  
 Update all installed apps
 
-`papm '[appname]'`  
+`pi-apps website '[appname]'`  
 Prints website for app
