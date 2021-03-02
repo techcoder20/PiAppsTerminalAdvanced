@@ -1,9 +1,9 @@
-# PiAppsPackageManagerTerminal
+# PiAppsTerminalAdvanced
 This is a prototype of PiAppsPackageManager terminal commands
 
 ## Install Command
 ```
-wget -qO- https://raw.githubusercontent.com/techcoder20/PiAppsPackageManagerTerminal/main/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/techcoder20/PiAppsTerminalAdvanced/main/install.sh | bash
 ```
 
 ## Available Arguments
