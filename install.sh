@@ -9,4 +9,4 @@ sed -i '/alias papm/d' ~/.bashrc
 #Adding alias to bash file
 echo "alias papm='python3 ~/pi-apps/papm.py'" >> ~/.bashrc
 source ~/.bashrc
-papm help
+
