@@ -186,6 +186,8 @@ if len(sys.argv) > 1:
         os.system('~/pi-apps/gui')
     elif sys.argv[1] == 'help':
         help()
+    elif sys.argv[1] == 'update':
+        update()
     else:
         print(Fore.RED + "Please enter valid argument. Use command 'pi-apps help' to get a list of valid arguments")
         quit()
