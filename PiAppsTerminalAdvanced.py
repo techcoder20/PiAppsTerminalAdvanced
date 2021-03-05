@@ -13,7 +13,7 @@ if sys.maxsize > 32 == False:
     system=64
 else:
     system=32
-HOME = os.system("echo $HOME")
+HOME=os.system("echo $HOME")
 PiAppsDirectory = os.listdir(HOME + "/pi-apps/apps")
 AppsName=[]
 AppsNameNoSpaces=[]
