@@ -13,24 +13,24 @@ if sys.maxsize > 32 == False:
     system=64
 else:
     system=32
-
-PiAppsDirectory = os.listdir("/home/pi/pi-apps/apps")
+HOME = os.system("echo $HOME")
+PiAppsDirectory = os.listdir(HOME + "/pi-apps/apps")
 AppsName=[]
 AppsNameNoSpaces=[]
-InstalledApps= os.listdir("/home/pi/pi-apps/data/status")
+InstalledApps= os.listdir(HOME + "/pi-apps/data/status")
 
 for appname in PiAppsDirectory:
     #Checking if system is 32-bit
     if system == 32:
         #Checking if app is 32-bit
-        if os.path.isfile("/home/pi/pi-apps/apps/" + appname + "/install-32") or os.path.isfile("/home/pi/pi-apps/apps/" + appname + "/install") and appname != "template":
+        if os.path.isfile(HOME + "/pi-apps/apps/" + appname + "/install-32") or os.path.isfile(HOME + "/pi-apps/apps/" + appname + "/install") and appname != "template":
             AppsName.append(appname)
             appname = appname.replace(" ","\ ")
             AppsNameNoSpaces.append(appname)
     #Checking if system is 64-bit
     elif system == 64:
         #Checking if app is 64-bit
-        if os.path.isfile("/home/pi/pi-apps/apps/" + appname + "/install-64") or os.path.isfile("/home/pi/pi-apps/apps/" + appname + "install") and appname != "template":
+        if os.path.isfile(HOME + "/pi-apps/apps/" + appname + "/install-64") or os.path.isfile(HOME + "/pi-apps/apps/" + appname + "install") and appname != "template":
             AppsName.append(appname)
             appname = appname.replace(" ","\ ")
             AppsNameNoSpaces.append(appname)
@@ -38,24 +38,24 @@ for appname in PiAppsDirectory:
 
 def list_installed():
     for InstalledApp in InstalledApps:
-        AppStatus = open("/home/pi/pi-apps/data/status/" + InstalledApp ,"r")
+        AppStatus = open(HOME + "/pi-apps/data/status/" + InstalledApp ,"r")
         status = AppStatus.read()
         AppStatus.close()
         if status.strip() == "installed":
             print(Fore.GREEN + InstalledApp)
-            descriptionfile = open("/home/pi/pi-apps/apps/" + InstalledApp + "/description","r")
+            descriptionfile = open(HOME + "/pi-apps/apps/" + InstalledApp + "/description","r")
             description = descriptionfile.read()
             print(Fore.CYAN + description)
             descriptionfile.close()
                 
 def list_uninstalled():
     for InstalledApp in InstalledApps:
-        AppStatus = open("/home/pi/pi-apps/data/status/" + InstalledApp ,"r")
+        AppStatus = open(HOME + "/pi-apps/data/status/" + InstalledApp ,"r")
         status = AppStatus.read()
         AppStatus.close()
         if status.strip() == "uninstalled":
             print(Fore.GREEN + InstalledApp)
-            descriptionfile = open("/home/pi/pi-apps/apps/" + InstalledApp + "/description","r")
+            descriptionfile = open(HOME + "/pi-apps/apps/" + InstalledApp + "/description","r")
             description = descriptionfile.read()
             print(Fore.CYAN + description)
             descriptionfile.close()
@@ -63,7 +63,7 @@ def list_uninstalled():
 def list_all():
     for appname in AppsName:
         print(Fore.GREEN + appname)
-        descriptionfile = open("/home/pi/pi-apps/apps/" + appname + "/description","r")
+        descriptionfile = open(HOME + "/pi-apps/apps/" + appname + "/description","r")
         description = descriptionfile.read()
         print(Fore.CYAN + description)
         descriptionfile.close()
@@ -108,7 +108,7 @@ def search(AppName):
                     similarity= fuzz.ratio(i.lower(), AppName.lower())
                     if similarity > SimilarityRubric or similarity == SimilarityRubric:
                         print(Fore.GREEN + i)
-                        fo = open("/home/pi/pi-apps/apps/" + i + "/description","r")
+                        fo = open(HOME + "/pi-apps/apps/" + i + "/description","r")
                         description = fo.read()
                         print(Fore.CYAN + description)
                         fo.close()
@@ -119,14 +119,14 @@ def search(AppName):
 
 def update():
     if sys.argv[1] == "update":
-        os.system("/home/pi/pi-apps/manage update-all")
+        os.system(HOME + "/pi-apps/manage update-all")
 
 
 def website(AppName):
     AppFound = False
     for App in AppsName:
         if AppName == App:
-            WebsiteFile = open("/home/pi/pi-apps/apps/" + App + "/website","r")
+            WebsiteFile = open(HOME + "/pi-apps/apps/" + App + "/website","r")
             website = WebsiteFile.read()
             print(Fore.CYAN + website.strip())
             WebsiteFile.close()
