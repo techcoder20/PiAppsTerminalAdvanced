@@ -112,7 +112,7 @@ def search(AppName):
                         fo.close()
                         SearchResults += 1
             else:
-                print("No Search Results Found :(")
+                print("No Search Results Found !")
                 quit()
 
 def update():
