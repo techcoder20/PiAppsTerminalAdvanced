@@ -1,10 +1,11 @@
 #!/bin/bash
 
 #Removing existing pi-apps binary
+echo "HOME = \"$(head -X /usr/local/bin/pi-apps | tail -1)\"" >PiApps.py
 sudo rm -f /usr/local/bin/pi-apps
 rm -f ~/pi-apps/PiApps.py
 #Downloading papm file
-echo "HOME = \"$HOME\"" >PiApps.py
+
 wget -qO- https://raw.githubusercontent.com/techoder20/PiAppsTerminalAdvanced/main/PiAppsTerminalAdvanced.py >>PiApps.py
 mv PiApps.py ~/pi-apps/PiApps.py
 #Removing alias if there before
