@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "import os
 import os.path
 import sys 
