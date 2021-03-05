@@ -192,4 +192,4 @@ if len(sys.argv) > 1:
         quit()
 else:
     os.system('~/pi-apps/gui')
-" >~/pi-apps/PiAppsTerminalAdvanced.py
+
