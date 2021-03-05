@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Removing existing pi-apps binary
-echo "HOME = \"$(head /usr/local/bin/pi-apps | tail -1)\"" >PiApps.py
+echo "HOME = \"$(dirname "$(dirname "$(head /usr/local/bin/pi-apps | tail -1)")")\"" >PiApps.py
 sudo rm -f /usr/local/bin/pi-apps
 rm -f ~/pi-apps/PiApps.py
 #Downloading papm file
