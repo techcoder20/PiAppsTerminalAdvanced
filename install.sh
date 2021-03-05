@@ -1,7 +1,7 @@
 #!/bin/bash
-
+pip3 install python-Levenshtein fuzzywuzzy
 #Removing existing pi-apps binary
-sudo rm /usr/local/bin/pi-apps
+sudo rm -f /usr/local/bin/pi-apps
 #Downloading papm file
 wget -qO- https://raw.githubusercontent.com/techcoder20/PiAppsTerminalAdvanced/main/PiAppsTerminalAdvanced-creator | bash
 #Removing alias if there before
