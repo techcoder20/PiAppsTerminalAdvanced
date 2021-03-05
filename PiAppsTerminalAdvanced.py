@@ -13,10 +13,10 @@ if sys.maxsize > 32 == False:
     system=64
 else:
     system=32
-PiAppsDirectory = os.listdir("$HOME/pi-apps/apps")
+PiAppsDirectory = os.listdir(HOME + "/pi-apps/apps")
 AppsName=[]
 AppsNameNoSpaces=[]
-InstalledApps= os.listdir("$HOME/pi-apps/data/status")
+InstalledApps= os.listdir(HOME + "/pi-apps/data/status")
 
 for appname in PiAppsDirectory:
     #Checking if system is 32-bit
