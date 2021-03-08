@@ -2,6 +2,8 @@
 This is an advanced terminal version of pi apps
 
 ## Install Command
+[![badge](https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true)](https://github.com/Botspot/pi-apps)<br>
+**OR**
 ```
 wget -qO- https://raw.githubusercontent.com/techcoder20/PiAppsTerminalAdvanced/main/install.sh | bash
 ```
