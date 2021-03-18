@@ -80,7 +80,7 @@ def install(AppName):
         else:
             AppExists=False
     if AppExists == False:
-        print(Fore.RED + "App Doesnt Exist. Use command 'pi-apps list --all' to list the apps also make sure to use '' while entering app name")
+        print(Fore.RED + "App Doesnt Exist. Use command 'pi-apps list-all' to list the available apps also make sure to use '' while entering app name")
 
 def uninstall(AppName):
     for i in AppsName:
@@ -94,7 +94,7 @@ def uninstall(AppName):
         else:
             AppExists=False
     if AppExists == False:
-        print(Fore.RED + "App Doesnt Exist. Use command 'pi-apps installed list --all' to list the installed apps also make sure to use '' while entering app name")
+        print(Fore.RED + "App Doesnt Exist. Use command 'pi-apps list-installed' to list the installed apps also make sure to use '' while entering app name")
 
 
 def search(AppName):
