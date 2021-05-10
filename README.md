@@ -1,12 +1,25 @@
-# PiAppsTerminalAdvanced
-This is an advanced terminal version of pi apps
+# Theme Saver
+<p align="center">
+  <img width="200" src="https://raw.githubusercontent.com/Botspot/pi-apps/master/apps/Pi-Apps%20Terminal%20Plugin/icon-64.png">  
+</p>
 
-## Install Command
+
+<p align="center">
+  <img width="200" src="https://img.shields.io/badge/Platform-GNU/Linux-orange?style=for-the-badge&logo=Linux&	for-the-badge">
+
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/techcoder20/themesaver?logo=Python&style=for-the-badge">
+
+</p>
+
+<p align="center">
+A terminal version of Pi-Apps with loads of commands  
+  
+
+</p>
+
+## Installation
+
 [![badge](https://github.com/Botspot/pi-apps/blob/master/icons/badge.png?raw=true)](https://github.com/Botspot/pi-apps)<br>
-**OR**
-```
-wget -qO- https://raw.githubusercontent.com/techcoder20/PiAppsTerminalAdvanced/main/install.sh | bash
-```
 
 ## Available Arguments
 
