@@ -5,7 +5,7 @@
 
 
 <p align="center">
-  <img width="200" src="https://img.shields.io/badge/Platform-GNU/Linux-orange?style=for-the-badge&logo=Linux&	for-the-badge">
+  <img width="200" src="https://img.shields.io/badge/Platform-GNU/Linux-orange?style=for-the-badge&logo=Linux">
 
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/techcoder20/themesaver?logo=Python&style=for-the-badge">
 
