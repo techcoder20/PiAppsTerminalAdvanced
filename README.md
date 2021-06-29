@@ -1,4 +1,4 @@
-# Theme Saver
+# Pi Apps Terminal Advanced
 <p align="center">
   <img width="200" src="https://raw.githubusercontent.com/Botspot/pi-apps/master/apps/Pi-Apps%20Terminal%20Plugin/icon-64.png">  
 </p>
