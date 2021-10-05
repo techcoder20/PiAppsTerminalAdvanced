@@ -136,7 +136,7 @@ if len(sys.argv) > 1:
     elif sys.argv[1] == 'help':
         help_()
     elif sys.argv[1] == 'update':
-        os.system(f"{PiAppsPath}/manage update-all")
+        os.system(f"{PiAppsPath}/updater cli")
     else:
         print(Fore.RED + "Please enter valid argument. Use command 'pi-apps help' to get a list of valid arguments")
         quit()
